@@ -1,0 +1,47 @@
+.landingPage {
+  display: flex;
+  height: 100vh;
+
+  &__image {
+    flex: 0.5;
+    background-image: url(../../assets/landing-page.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: $fz-main-title;
+  }
+
+  h2 {
+    font-size: $fz-extra-large;
+    margin-top: 0;
+  }
+
+  .icon--small {
+    color: $clr-twitter-blue;
+    font-size: 50px;
+  }
+
+  .icon--large {
+    font-size: 400px;
+    color: white;
+  }
+
+  &__text {
+    flex: 0.5;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .landingPage {
+    flex-direction: column-reverse;
+  }
+}

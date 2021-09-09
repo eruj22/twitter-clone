@@ -1,0 +1,17 @@
+$fz-extra-small: 12px;
+$fz-small: 15px;
+$fz-medium: 18px;
+$fz-large: 20px;
+$fz-extra-large: 30px;
+$fz-main-title: 70px;
+
+h3,
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: $fz-large;
+}
