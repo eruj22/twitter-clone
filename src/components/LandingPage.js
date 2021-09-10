@@ -1,10 +1,10 @@
 import React from "react"
 import TwitterIcon from "@material-ui/icons/Twitter"
-import Button from "@material-ui/core/Button"
+import { Link } from "react-router-dom"
 
 function LandingPage() {
   return (
-    <div className="landingPage">
+    <section className="landingPage">
       <div className="landingPage__image">
         <TwitterIcon className="icon--large" />
       </div>
@@ -13,11 +13,15 @@ function LandingPage() {
         <h1>Happening now</h1>
         <h2>Join Twitter today.</h2>
         <div className="landingPage__buttons">
-          <Button>Sign Up</Button>
-          <Button variant="outlined">Log In</Button>
+          <Link to="/signup" className="cta cta--full cta--limited">
+            Sign Up
+          </Link>
+          <Link to="/login" className="cta cta--empty cta--limited">
+            Log In
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -8,7 +8,7 @@ import SearchIcon from "@material-ui/icons/Search"
 
 function Widgets() {
   return (
-    <div className="widgets">
+    <aside className="widgets">
       <div className="widgets__input">
         <SearchIcon className="widgets__searchIcon" />
         <input type="text" placeholder="Search Twitter" />
@@ -27,7 +27,7 @@ function Widgets() {
           options={{ text: "#reactjs is awesome", via: "cleverqazi" }}
         /> */}
       </div>
-    </div>
+    </aside>
   )
 }
 

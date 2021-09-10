@@ -1,0 +1,21 @@
+.signup {
+  margin: 30px auto 0;
+  max-width: 400px;
+
+  h2 {
+    font-size: $fz-extra-large;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+  }
+}

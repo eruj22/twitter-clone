@@ -21,11 +21,6 @@
     margin-top: 0;
   }
 
-  .icon--small {
-    color: $clr-twitter-blue;
-    font-size: 50px;
-  }
-
   .icon--large {
     font-size: 400px;
     color: white;
@@ -33,15 +28,102 @@
 
   &__text {
     flex: 0.5;
-    padding-left: 40px;
+    padding: 0 20px 0 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.icon--small {
+  color: $clr-twitter-blue;
+  font-size: 50px !important;
+}
+
+.cta {
+  font-weight: 800;
+  text-transform: inherit;
+  border-radius: 30px !important;
+  padding: 13px !important;
+  text-align: center;
+  border: none;
+}
+
+.cta--limited {
+  max-width: 350px;
+}
+
+.cta--full {
+  background-color: $clr-twitter-blue !important;
+  color: white !important;
+  margin: 10px 0 20px;
+}
+
+.cta--full:hover {
+  background-color: $clr-button-hover !important;
+  border: none;
+}
+
+.cta--empty {
+  color: $clr-twitter-blue !important;
+  border: 1px solid $clr-twitter-bg !important;
+}
+
+.cta--empty:hover {
+  background-color: $clr-light-gray !important;
+  border: 1px solid $clr-twitter-bg !important;
 }
 
 @media (max-width: 1000px) {
   .landingPage {
     flex-direction: column-reverse;
+
+    &__image {
+      flex: 0.3;
+    }
+
+    .icon--large {
+      font-size: 300px;
+    }
+
+    &__text {
+      flex: 0.7;
+      padding: 30px 20px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  text-align: center;
+
+  h4 {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .landingPage {
+    h1 {
+      font-size: $fz-main-title-S;
+    }
+
+    h2 {
+      font-size: $fz-extra-large-S;
+    }
+
+    .icon--large {
+      font-size: 250px;
+    }
   }
 }

@@ -1,0 +1,30 @@
+.user {
+  flex: 0.4;
+  border-right: 1px solid $clr-twitter-bg;
+  min-width: fit-content;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid $clr-twitter-bg;
+    padding: 15px 20px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &__linkBack {
+    display: flex;
+    margin-right: 20px;
+  }
+}

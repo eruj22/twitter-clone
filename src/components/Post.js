@@ -20,7 +20,7 @@ const Post = forwardRef(
     ref
   ) => {
     return (
-      <div className="post" ref={ref}>
+      <article className="post" ref={ref}>
         <div className="post__avatar">
           <Avatar src={avatar} />
         </div>
@@ -47,7 +47,7 @@ const Post = forwardRef(
             <PublishIcon fontSize="small" />
           </div>
         </div>
-      </div>
+      </article>
     )
   }
 )

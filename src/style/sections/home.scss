@@ -31,7 +31,7 @@
   }
 
   button:hover {
-    background-color: $clr-twitter-blue;
+    background-color: $clr-button-hover;
   }
 }
 
@@ -39,6 +39,8 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  width: fit-content;
+  color: $clr-text;
 
   &:hover {
     background-color: $clr-twitter-light-blue;
@@ -77,6 +79,10 @@
     z-index: 100;
     border: 1px solid $clr-twitter-bg;
     padding: 15px 20px;
+
+    h2 {
+      margin: 0;
+    }
   }
 }
 

@@ -13,22 +13,26 @@ import Button from "@material-ui/core/Button"
 
 function Sidebar() {
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <TwitterIcon className="sidebar__twitterIcon" />
 
-      <SidebarOption active Icon={HomeIcon} text="Home" />
+      <SidebarOption active Icon={HomeIcon} text="Home" link={"home"} />
       <SidebarOption Icon={SearchIcon} text="Explore" />
       <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
       <SidebarOption Icon={MailOutlineIcon} text="Messages" />
       <SidebarOption Icon={BookmarkBorderIcon} text="Bookmarks" />
       <SidebarOption Icon={ListAltIcon} text="Lists" />
-      <SidebarOption Icon={PermIdentityIcon} text="Profile" />
+      <SidebarOption
+        Icon={PermIdentityIcon}
+        text="Profile"
+        link={"home/user"}
+      />
       <SidebarOption Icon={MoreHorizIcon} text="More" />
 
       <Button variant="outlined" fullWidth>
         Tweet
       </Button>
-    </div>
+    </aside>
   )
 }
 

@@ -1,11 +1,15 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-function SidebarOption({ active, text, Icon }) {
+function SidebarOption({ active, text, Icon, link }) {
   return (
-    <div className={`sidebarOption ${active && "sidebarOption--active"}`}>
+    <Link
+      to={link ? `/${link}` : "/home"}
+      className={`sidebarOption ${active && "sidebarOption--active"}`}
+    >
       <Icon />
       <h2>{text}</h2>
-    </div>
+    </Link>
   )
 }
 
