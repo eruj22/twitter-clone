@@ -5,18 +5,11 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline"
 import RepeatIcon from "@material-ui/icons/Repeat"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import PublishIcon from "@material-ui/icons/Publish"
+import { timeConverter } from "../utils/functions"
 
 const Post = forwardRef(
   (
-    {
-      displayName,
-      username,
-      verified,
-      // timestamp,
-      text,
-      image,
-      avatar,
-    },
+    { displayName, username, verified, createdAt, text, image, avatar },
     ref
   ) => {
     return (
@@ -31,7 +24,8 @@ const Post = forwardRef(
                 {displayName}{" "}
                 <span className="post__headerSpecial">
                   {verified && <VerifiedUserIcon className="post__badge" />} @
-                  {username}
+                  {username} -{" "}
+                  {createdAt ? timeConverter(createdAt.seconds) : null}
                 </span>
               </h3>
             </div>
@@ -39,7 +33,7 @@ const Post = forwardRef(
               <p>{text}</p>
             </div>
           </div>
-          <img src={image} alt="" />
+          <img src={image && image} alt="" />
           <div className="post__footer">
             <ChatBubbleOutlineIcon fontSize="small" />
             <RepeatIcon fontSize="small" />

@@ -23,7 +23,9 @@ function Login() {
 
   return (
     <section className="login">
-      <TwitterIcon className="icon--small" />
+      <Link to="/">
+        <TwitterIcon className="icon--small" />
+      </Link>
       <h2>Log in to Twitter</h2>
       <form className="login__form">
         <TextField

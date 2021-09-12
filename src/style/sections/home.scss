@@ -11,6 +11,9 @@
   flex: 0.3;
   min-width: 250px;
   padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__twitterIcon {
     color: $clr-twitter-blue;
@@ -20,18 +23,32 @@
   }
 
   button {
-    background-color: $clr-twitter-blue;
-    font-weight: 800;
-    color: white;
-    border-radius: 30px;
-    height: 50px;
     margin-top: 20px;
-    border: none;
     text-transform: inherit;
   }
 
-  button:hover {
-    background-color: $clr-button-hover;
+  &__profileText {
+    position: relative;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    margin: 12px 0;
+
+    h3 {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    svg {
+      margin-left: auto;
+    }
+
+    &:hover {
+      background-color: $clr-light-gray;
+    }
   }
 }
 
@@ -76,7 +93,7 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 100;
+    z-index: 10;
     border: 1px solid $clr-twitter-bg;
     padding: 15px 20px;
 
@@ -88,7 +105,7 @@
 
 .tweetBox {
   padding: 10px;
-  border-bottom: 8px solid $clr-twitter-bg;
+  // border-bottom: 1px solid $clr-twitter-bg;
 
   &__input {
     display: flex;

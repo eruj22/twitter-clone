@@ -17,6 +17,12 @@ a {
   color: $clr-twitter-blue;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 // a:hover {
 //   border-bottom: 1px solid $clr-twitter-blue;
 // }

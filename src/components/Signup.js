@@ -27,7 +27,9 @@ function Signup() {
 
   return (
     <section className="signup">
-      <TwitterIcon className="icon--small" />
+      <Link to="/">
+        <TwitterIcon className="icon--small" />
+      </Link>
       <h2>Create your account</h2>
       <form className="login__form">
         <TextField

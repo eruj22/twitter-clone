@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Button, Avatar } from "@material-ui/core"
 import { db } from "../services/firebase"
+import firebase from "firebase"
 
-function TweetBox() {
+function TweetBox({ closeTweet, isTweetOpen }) {
   const [tweetMessage, setTweetMessage] = useState("")
   const [tweetImage, setTweetImage] = useState("")
 
@@ -13,10 +14,15 @@ function TweetBox() {
       displayName: "Jure Prnaver",
       username: "eruj22",
       verified: true,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       text: tweetMessage,
       image: tweetImage,
       avatar: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg",
     })
+
+    if (isTweetOpen) {
+      closeTweet()
+    }
 
     setTweetImage("")
     setTweetMessage("")
