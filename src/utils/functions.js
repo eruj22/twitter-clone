@@ -32,3 +32,11 @@ export const timeConverter = (UNIX_timestamp) => {
     min.substr(-2)
   return time
 }
+
+export const saveToLocalStorage = (name, item) => {
+  return localStorage.setItem(name, item)
+}
+
+export const getFromLocalStorage = (item) => {
+  return localStorage.getItem(item)
+}

@@ -1,21 +1,30 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
-import { useStateValue } from "../utils/StateProvider"
 import { Button, Avatar } from "@material-ui/core"
-import firebase from "firebase"
+import { db } from "../services/firebase"
+import UserUpdateModal from "./UserUpdateModal"
+import { getFromLocalStorage } from "../utils/functions"
 
 function User() {
-  const [{ user }, dispatch] = useStateValue()
-  const [userName, setUserName] = useState("")
-  const [userImage, setUserImage] = useState("")
-  console.log("name: ", user.userName, "img: ", user.photoURL)
+  const [displayUserData, setDisplayUserData] = useState([])
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false)
 
-  const changeProfile = (e) => {
-    e.preventDefault()
-
-    console.log(1)
+  const openUserModal = () => {
+    setIsUserModalOpen(true)
   }
+
+  const getUserData = () => {
+    db.collection("users")
+      .doc(getFromLocalStorage("userId"))
+      .onSnapshot((doc) => {
+        setDisplayUserData(doc.data())
+      })
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
 
   return (
     <main className="user">
@@ -25,21 +34,24 @@ function User() {
         </Link>
         <h2 className="user__title">user</h2>
       </header>
-      <form>
-        <input
-          type="text"
-          placeholder="username"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="image"
-          value={userImage}
-          onChange={(e) => setUserImage(e.target.value)}
-        />
-        <Button onClick={changeProfile}>Tweet</Button>
-      </form>
+
+      <div className="user__backgroundImage"></div>
+
+      <div className="user__profile">
+        <div>
+          <Avatar id="user__avatar" src={displayUserData.image} />
+          <h2 className="user__name">{displayUserData.name}</h2>
+          <p className="user__username">@{displayUserData.username}</p>
+        </div>
+        <Button className="user__updateBtn" onClick={openUserModal}>
+          Edit profile
+        </Button>
+      </div>
+
+      <UserUpdateModal
+        isUserModalOpen={isUserModalOpen}
+        setIsUserModalOpen={setIsUserModalOpen}
+      />
     </main>
   )
 }

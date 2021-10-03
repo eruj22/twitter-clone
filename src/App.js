@@ -8,12 +8,15 @@ import Footer from "./components/Footer"
 import Home from "./components/Home"
 import UserProfile from "./components/UserProfile"
 
+// TODO: display time for every feed based on current time
+// TODO: add working buttons for every post (comment, like)
+// TODO: change active class in the sidebar menu
+
 function App() {
   return (
     <Router>
       <div>
         <Switch>
-          {/* add dynamic route to each user */}
           <Route exact path="/home">
             <Home />
           </Route>

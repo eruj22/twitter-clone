@@ -9,7 +9,7 @@
 .sidebar {
   border-right: 1px solid $clr-twitter-bg;
   flex: 0.3;
-  min-width: 250px;
+  min-width: 80px;
   padding: 20px 20px 0;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@
     transition: color 0.1s ease-out;
   }
 
-  h2 {
+  &__title {
     margin-right: 20px;
   }
 
@@ -105,7 +105,6 @@
 
 .tweetBox {
   padding: 10px;
-  // border-bottom: 1px solid $clr-twitter-bg;
 
   &__input {
     display: flex;
@@ -155,9 +154,8 @@
 
     img {
       margin-top: 10px;
-      width: 100%;
-      // change that
-      max-width: 40vw;
+      width: 40vw;
+      max-width: 550px;
       border-radius: 20px;
     }
   }
@@ -195,6 +193,8 @@
 
 .widgets {
   flex: 0.3;
+  min-width: 140px;
+  padding: 10px;
 
   &__input {
     display: flex;
@@ -202,12 +202,12 @@
     background-color: $clr-twitter-bg;
     padding: 10px;
     border-radius: 20px;
-    margin: 10px 0 0 20px;
 
     input {
       border: none;
       background-color: $clr-twitter-bg;
       padding: 5px;
+      width: 100%;
     }
   }
 
@@ -216,14 +216,52 @@
   }
 
   &__widgetContainer {
-    margin: 15px 0 0 20px;
-    padding: 10px 20px;
+    margin-top: 10px;
+    padding: 10px;
     background-color: $clr-light-gray;
     border-radius: 20px;
+  }
 
-    h2 {
-      font-size: $fz-large;
-      font-weight: 800;
+  &__title {
+    margin-bottom: 16px;
+    font-size: $fz-large;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    flex: 0.1;
+
+    &__profileText {
+      width: fit-content;
+
+      h3 {
+        display: none;
+      }
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  .sidebarOption {
+    &__title {
+      display: none;
+    }
+  }
+
+  .feed {
+    flex: 0.7;
+  }
+
+  .widgets {
+    flex: 0.2;
+
+    &__widgetContainer {
+      background-color: $clr-light-gray;
+      border-radius: 20px;
     }
   }
 }

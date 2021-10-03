@@ -8,7 +8,7 @@ function SidebarOption({ active, text, Icon, link }) {
       className={`sidebarOption ${active && "sidebarOption--active"}`}
     >
       <Icon />
-      <h2>{text}</h2>
+      <h2 className="sidebarOption__title">{text}</h2>
     </Link>
   )
 }

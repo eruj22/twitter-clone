@@ -26,7 +26,7 @@ function Login() {
       <Link to="/">
         <TwitterIcon className="icon--small" />
       </Link>
-      <h2>Log in to Twitter</h2>
+      <h2 className="login__title">Log in to Twitter</h2>
       <form className="login__form">
         <TextField
           label="Email"
@@ -41,7 +41,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button className="cta cta--full" onClick={signIn}>
+        <Button className="cta cta--full" type="submit" onClick={signIn}>
           Log In
         </Button>
       </form>

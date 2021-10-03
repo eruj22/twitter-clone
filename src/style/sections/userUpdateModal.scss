@@ -1,4 +1,4 @@
-.tweetModal {
+.userModal {
   display: none;
   justify-content: center;
   position: fixed;
@@ -22,9 +22,29 @@
     display: flex;
   }
 
+  &__title {
+    margin-left: 10px;
+  }
+
   &__header {
     padding: 5px;
     border-bottom: 1px solid $clr-twitter-bg;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .MuiButtonBase-root {
+      margin-left: auto;
+    }
+  }
+
+  .form {
+    padding: 15px;
+
+    div {
+      width: 100%;
+      margin: 5px 0;
+    }
   }
 
   &__icon {

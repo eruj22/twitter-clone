@@ -1,5 +1,6 @@
 export const initialState = {
   user: null,
+  currentUserData: null,
 }
 
 const reducer = (state, action) => {
@@ -9,8 +10,13 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       }
+    case "CURRENT_USER_DATA":
+      return {
+        ...state,
+        currentUserData: action.currentUserData,
+      }
     default:
-      return state
+      throw new Error("Wrong action")
   }
 }
 

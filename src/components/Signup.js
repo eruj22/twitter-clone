@@ -3,7 +3,7 @@ import TwitterIcon from "@material-ui/icons/Twitter"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { Link, useHistory } from "react-router-dom"
-import { auth } from "../services/firebase"
+import { auth, db } from "../services/firebase"
 
 function Signup() {
   let history = useHistory()
@@ -21,6 +21,10 @@ function Signup() {
         if (userCredentials) {
           history.push("/home")
         }
+        return db.collection("users").doc(userCredentials.user.uid).set({
+          name,
+          email,
+        })
       })
       .catch((error) => alert(error.message))
   }
@@ -30,7 +34,7 @@ function Signup() {
       <Link to="/">
         <TwitterIcon className="icon--small" />
       </Link>
-      <h2>Create your account</h2>
+      <h2 className="signup__title">Create your account</h2>
       <form className="login__form">
         <TextField
           label="Name"
@@ -52,7 +56,7 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
         {/* date of birth */}
-        <Button className="cta cta--full" onClick={signUp}>
+        <Button className="cta cta--full" type="submit" onClick={signUp}>
           Sign Up
         </Button>
       </form>

@@ -2,7 +2,8 @@
   margin: 30px auto 0;
   max-width: 400px;
 
-  h2 {
+  &__title {
+    margin-bottom: 15px;
     font-size: $fz-extra-large;
   }
 

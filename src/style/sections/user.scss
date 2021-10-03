@@ -17,10 +17,35 @@
     z-index: 100;
     border: 1px solid $clr-twitter-bg;
     padding: 15px 20px;
+  }
 
-    h2 {
-      margin: 0;
-    }
+  &__backgroundImage {
+    background-color: grey;
+    height: 200px;
+  }
+
+  &__profile {
+    position: relative;
+    padding: 20px;
+    transform: translateY(-70px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    margin-top: 10px;
+  }
+
+  #user__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__username {
+    color: gray;
+    font-size: $fz-small;
+    font-weight: normal;
   }
 
   &__linkBack {

@@ -13,8 +13,10 @@ import Button from "@material-ui/core/Button"
 import { Avatar } from "@material-ui/core"
 import TweetModal from "./TweetModal"
 import SidebarProfileModal from "./SidebarProfileModal"
+import { Link } from "react-router-dom"
+import noUserImage from "../assets/no-user.jpg"
 
-function Sidebar() {
+function Sidebar({ user }) {
   const [isTweetOpen, setIsTweetOpen] = useState(false)
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
 
@@ -30,20 +32,22 @@ function Sidebar() {
     <>
       <aside className="sidebar">
         <div>
-          <TwitterIcon className="sidebar__twitterIcon" />
+          <Link to="/home">
+            <TwitterIcon className="sidebar__twitterIcon" />
+          </Link>
 
           <SidebarOption active Icon={HomeIcon} text="Home" link={"home"} />
-          <SidebarOption Icon={SearchIcon} text="Explore" />
+          {/* <SidebarOption Icon={SearchIcon} text="Explore" />
           <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
           <SidebarOption Icon={MailOutlineIcon} text="Messages" />
           <SidebarOption Icon={BookmarkBorderIcon} text="Bookmarks" />
-          <SidebarOption Icon={ListAltIcon} text="Lists" />
+          <SidebarOption Icon={ListAltIcon} text="Lists" /> */}
           <SidebarOption
             Icon={PermIdentityIcon}
             text="Profile"
             link={"home/user"}
           />
-          <SidebarOption Icon={MoreHorizIcon} text="More" />
+          {/* <SidebarOption Icon={MoreHorizIcon} text="More" /> */}
 
           <Button
             className="cta cta--full"
@@ -60,9 +64,12 @@ function Sidebar() {
             className="cta sidebar__profileText"
             onClick={openProfileModal}
           >
-            <Avatar src="https://byuc.files.wordpress.com/2012/07/avat-2.jpg" />
+            <Avatar src={user ? user.image : noUserImage} />
             <h3>
-              Jure Prnaver <span className="post__headerSpecial">@eruj22</span>
+              {user ? user.name : "unknown"}{" "}
+              <span className="post__headerSpecial">
+                @{user ? user.username : null}
+              </span>
             </h3>
             <MoreHorizIcon />
             <SidebarProfileModal isProfileModalOpen={isProfileModalOpen} />

@@ -3,24 +3,22 @@ import Post from "./Post"
 import TweetBox from "./TweetBox"
 import { db } from "../services/firebase"
 import FlipMove from "react-flip-move"
-import { useStateValue } from "../utils/StateProvider"
-import firebase from "firebase"
 
-function Feed() {
-  const [state, dispatch] = useStateValue()
+function Feed({ user }) {
   const [posts, setPosts] = useState([])
 
-  useEffect(() => {
-    db.collection("posts")
+  const getPosts = async () => {
+    await db
+      .collection("posts")
       .orderBy("createdAt")
       .onSnapshot((snapshot) => {
         setPosts(snapshot.docs.map((doc) => doc.data()).reverse())
       })
-    dispatch({
-      type: "SET_USER",
-      user: firebase.auth().currentUser,
-    })
-    // TODO: when the feed will refresh
+  }
+
+  useEffect(() => {
+    getPosts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -28,7 +26,7 @@ function Feed() {
       <header className="feed__header">
         <h2>Home</h2>
       </header>
-      <TweetBox />
+      <TweetBox user={user} />
 
       <FlipMove>
         {posts.map((post) => {

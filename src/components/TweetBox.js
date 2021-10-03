@@ -1,23 +1,28 @@
 import React, { useState } from "react"
 import { Button, Avatar } from "@material-ui/core"
 import { db } from "../services/firebase"
-import firebase from "firebase"
+import firebase from "firebase/app"
+import noUserImage from "../assets/no-user.jpg"
 
-function TweetBox({ closeTweet, isTweetOpen }) {
+function TweetBox({ closeTweet, isTweetOpen, user }) {
   const [tweetMessage, setTweetMessage] = useState("")
   const [tweetImage, setTweetImage] = useState("")
 
   const sendTweet = (e) => {
     e.preventDefault()
 
+    if (tweetMessage === "") {
+      return null
+    }
+
     db.collection("posts").add({
-      displayName: "Jure Prnaver",
-      username: "eruj22",
+      displayName: user.name,
+      username: user.username,
       verified: true,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       text: tweetMessage,
       image: tweetImage,
-      avatar: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg",
+      avatar: user.image,
     })
 
     if (isTweetOpen) {
@@ -32,7 +37,7 @@ function TweetBox({ closeTweet, isTweetOpen }) {
     <div className="tweetBox">
       <form>
         <div className="tweetBox__input">
-          <Avatar src="https://byuc.files.wordpress.com/2012/07/avat-2.jpg" />
+          <Avatar src={user ? user.image : noUserImage} />
           <input
             type="text"
             placeholder="What is happening?"
